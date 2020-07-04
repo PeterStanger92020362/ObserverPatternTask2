@@ -21,6 +21,15 @@ public class ObserverPatternTask2 {
         }
 
         doctor1.callPatient();
+        doctor1.callPatient();
+        doctor1.callPatient();
+        doctor1.callPatient();
+        doctor1.callPatient();
+
+        //shouldn't have any patients come forward for ticket #236 +
+        doctor1.callPatient();
+        doctor1.callPatient();
+        doctor1.callPatient();
 
     }
 

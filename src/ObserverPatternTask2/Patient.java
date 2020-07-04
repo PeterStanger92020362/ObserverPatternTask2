@@ -22,9 +22,13 @@ public class Patient implements Observer {
         return this.ticketNumber;
     }
 
-    public void update(Observable mySubject, Object doctor){
-        System.out.println("Thanks, here is my card number "+ getTicketNumber() +
-                ". I am ready to see the doctor.");
+    public void update(Observable mySubject, Object currentTicket){
+
+        if(currentTicket.equals(this.getTicketNumber())) {
+            System.out.println("Thanks, here is my card number " + getTicketNumber() +
+                    ". I am ready to see the doctor.");
+        }
+
     }
 
 }
