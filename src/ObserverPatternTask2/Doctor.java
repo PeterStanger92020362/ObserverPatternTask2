@@ -8,6 +8,7 @@ public class Doctor extends Observable{
 
     private ArrayList<Observer> observers;
     private int servingPatient;
+    private int prizeCounter = 0;
 
     //setter
     public void setServingPatient(int servingPatient) {
@@ -37,9 +38,24 @@ public class Doctor extends Observable{
 
         notifyObservers(this,nextTicket);
 
-        setServingPatient(nextTicket+1);
+        if(prizeCounter%10 ==0 && prizeCounter != 0){
+            System.out.println("Congratulations on winning a free entry into our monthly raffle! Hope you feel better soon.");
+        }
+
+        incrementTicketNumber();
 
     }
+
+    public void incrementTicketNumber(){
+        prizeCounter++;
+        setServingPatient(getServingPatient()+1);
+    }
+
+    public void decrementTicketNumber(){
+        prizeCounter--;
+        setServingPatient(getServingPatient()-1);
+    }
+
 
     public void notifyObservers(Observable observable, int nextTicket){
         for (Observer ob : observers) {
